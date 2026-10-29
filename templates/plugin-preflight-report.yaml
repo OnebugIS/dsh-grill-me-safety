@@ -1,0 +1,36 @@
+# Plugin Preflight report template v1.0.0
+# Replace every placeholder; use status=unknown/not_checked rather than empty values.
+plugin_preflight:
+  schema_version: 1.0.0
+  report_id: preflight-REPLACE-ME
+  observed_at: REPLACE-ME
+  input:
+    source: {value: REPLACE-ME, status: known, evidence_ids: []}
+    source_type: {value: github-repo, status: known, evidence_ids: []}
+    requested_action: {value: install, status: known, evidence_ids: []}
+    target_profile: {value: REPLACE-ME, status: known, evidence_ids: []}
+  environment:
+    dsh_version: {value: REPLACE-ME, status: known, evidence_ids: []}
+    profile: {value: REPLACE-ME, status: known, evidence_ids: []}
+    package_manager: {value: REPLACE-ME, status: unknown, evidence_ids: []}
+  artifact:
+    name: {value: REPLACE-ME, status: known, evidence_ids: []}
+    version: {value: REPLACE-ME, status: known, evidence_ids: []}
+    immutable_digest: {value: REPLACE-ME, status: unknown, evidence_ids: []}
+    commit_or_release: {value: REPLACE-ME, status: known, evidence_ids: []}
+  facts: []
+  findings: []
+  dimensions:
+    maintenance: {level: unknown, confidence: low, evidence_ids: []}
+    community: {level: unknown, confidence: low, evidence_ids: []}
+    engineering: {level: unknown, confidence: low, evidence_ids: []}
+    dsh_risk: {level: unknown, confidence: low, evidence_ids: []}
+  decision:
+    state: needs-evidence
+    blockers: []
+    conditions: []
+    actor: REPLACE-ME
+    confirmed_at: null
+    expires_at: null
+  acceptance: []
+  evidence: []
