@@ -77,14 +77,22 @@ acceptance:
 ```mermaid
 flowchart TD
     A[执行完成] --> B[逐项验收]
-    B --> C{有必需项失败?}
-    C -->|否| D[状态 verified/done]
-    C -->|是| E[停止后续变更]
+    B --> C{所有必需项均为 passed?}
+    C -->|是| D[状态 verified/done]
+    C -->|否：failed / not_run / blocked| E[停止后续变更]
     E --> F{可安全回滚?}
     F -->|是| G[执行 rollback]
     F -->|否| H[保持现场并升级报告]
-    G --> I[再次验收]
-    I --> J[记录 failed-and-rolled-back]
+    G --> I[再次执行恢复验收]
+    I --> J{恢复验收所有必需项均为 passed?}
+    J -->|是| K[记录 failed-and-rolled-back]
+    J -->|否| L[记录 rollback-failed：保持现场并升级]
 ```
+
+不变量（与第 1 节正文同一来源，任何流程图不得与其冲突）：
+
+1. 任一必需项不是 `passed`（含 `not_run`、`blocked`），不能进入 `done`/`verified`。
+2. 回滚后必须重新执行恢复验收；恢复验收未通过，只能记 `rollback-failed`，不得记 `failed-and-rolled-back`。
+3. `not_run` 的例外批准只解释原因，不改变 1 的判定。
 
 失败记录至少包含：失败项、实际值、预期值、影响范围、已采取动作、回滚路径、下一步负责人和时间。
