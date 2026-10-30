@@ -120,7 +120,7 @@ sequenceDiagram
 | `SKILL.md` | 完整协议：触发、事实扫描、访谈、门禁、验收和交付 |
 | `references/safety-checklist.md` | 变更前、执行中、验收后的逐项清单 |
 | `references/acceptance.md` | 通用机器验收协议与不同变更类型的验收矩阵 |
-| `references/plugin-preflight.md` | 插件安装前体检、证据模型、阻断规则和状态机 |
+| `references/plugin-preflight.md` | 插件安装前体检、证据模型、阻断规则和决策状态 |
 | `templates/plugin-preflight-report.yaml` | 可复制的结构化体检报告模板 |
 | `references/test-cases.md` | A–F 组测试用例与记录表（触发边界 / 访谈机制 / Preflight / 门禁 / 验收 / 真实演练） |
 | `LICENSE` | MIT License |
